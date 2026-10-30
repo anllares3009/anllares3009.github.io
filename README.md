@@ -30,5 +30,16 @@ El rango de valores HSV esta dividido en 2 ya que el rojo se encuentra al princi
 [VIDEO_Circuito3](RECURSOS/Practica_2/Circuito3.mp4) <br>
 [VIDEO_Circuito4](RECURSOS/Practica_2/Circuito4.mp4) <br>
 [VIDEO_NoLine](RECURSOS/Practica_2/NoLine.mp4) <br>
-<img width="1356" height="979" alt="Captura desde 2026-10-16 20-24-10" src="https://github.com/user-attachments/assets/47a2ea9d-5041-48f3-b287-cbbc79c871a1" />
+<img width="1356" height="979" alt="Captura desde 2026-10-16 20-24-10" src="https://github.com/user-attachments/assets/47a2ea9d-5041-48f3-b287-cbbc79c871a1" /> <br>
 
+## Práctica 3: ObstacleAvoidance <br>
+Programa un coche de Fórmula1, equipado con un sensor laser y un sensor GPS, para que recorra un circuito de carreras con valla en los laterales y con otros coches como obstáculos a lo largo del recorrido. Se programará el algoritmo de navegación local VFF con fuerzas virtuales para gobernar la velocidad lineal del coche (V) y la velocidad angular (W) en cada iteración. El coche debe completar el circuito en el menor tiempo posible y siempre manteniendo la seguridad de que no choca con ningún obstáculo. El sistema de navegación global ha planificado una secuencia de subobjetivos de modo que si se van alcanzando consecutivamente garantiza que se completa la vuelta al circuito. Se considerará un subobjetivo alcanzado cuando la posición del coche está razonablemente de la posición del subobjetivo. En ese caso se pasará a navegar localmente hacia el siguiente subobjetivo.
+
+La aplicación robótica se implementará como un bucle infinito. Cada iteración incluirá las instrucciones para materializar el procesamiento del sensor laser, las fuerzas repulsivas, la fuerza atractiva, su combinación y su traducción a decisiones sobre los dos actuadores V y W. <br>
+
+### Solución Propuesta <br>
+Se hace uso de los waypoints para generar un vector de fuerza atractiva y luego haciendo uso del sensor laser se sacan todos los obstaculos a menos de 10 metros y con ellos calculo un vector repulsivo por cada uno y los divido entre la distancia al cuadrado para que los vectores de repulsion sean mucho menores cuanto mas lejos esten y mas fuertes cuanto mas cerca esten de cada obstaculo en si, con esta medida reducimos las oscilaciones del vehículo. Después sumamos todos estos vectores multiplicados por una constante para ajustar la repulsion junto al atractivo para que nos quede un vector resultante que será la dirección a seguir por el vehículo. Después mediante los valores obtenidos calculamos la velocidad lineal y angular del vehículo.
+
+### Resultado <br>
+Al final he conseguido implementar todolo necesario para que el vehículo se mueva mediante un Campo de Fuerzas Virtuales, sinembargo, me ha costado mucho ajustar los valores de las distintas constantes para llegar a un resultado en el que el coche llegara a la meta sin chocarse con ningún otro coche y sin oscilar en un tiempo aproximado de 2 minutos. Cabe recalcar que en cuanto la conexión a internet no es óptima el simulador falla y hay algun choque, no he conseguido ajustar los valores para que el coche funcione en estas condiciones más limitadas.
+[VIDEO_Avoidance](RECURSOS/Practica_3/Circuito_Avoidance.mp4)
