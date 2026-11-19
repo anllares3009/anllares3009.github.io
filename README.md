@@ -55,4 +55,4 @@ Se carga el mapa y se convierte en un mapa de obstáculos (celdas con valor meno
 ### Resultado
 
 El taxi llega al destino siguiendo la ruta calculada sin chocar con las paredes. Un problema que me encontré al principio es que WebGUI.worldToGrid devuelve las coordenadas como (columna, fila), al revés de como se indexa el mapa en numpy, por lo que hay que intercambiarlas, y si no la ruta atravesaba paredes. Otro problema fue que el camino más corto iba pegado a los bordes de la carretera y el taxi chocaba en las curvas, y lo solucioné con la penalización según la distancia a la pared. Aquí se puede ver un vídeo del funcionamiento: <br>
-[VIDEO_GlobalNavigation](RECURSOS/Practica_4/Global.mp4)<br>
+[VIDEO_GlobalNavigation](RECURSOS/Practica_4/global.mp4)<br>
